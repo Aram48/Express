@@ -1,0 +1,22 @@
+[
+  {
+    "id": 101,
+    "name": "App",
+    "description": "Complete overhaul of the corporate website to improve user interface and overall user experience.",
+    "startDate": "2024-07-01",
+    "endDate": "2024-12-31",
+    "status": "Completed",
+    "budget": 90000,
+    "currency": "USD",
+    "team": [
+      505,
+      506,
+      507
+    ],
+    "tasks": [
+      104,
+      105,
+      106
+    ]
+  }
+]
