@@ -18,7 +18,7 @@ let resources = {
 app.use("/users", userRouter);
 app.use("/tasks", taskRouter);
 app.use("/projects", projectRouter);
-app.use("/projects/tasks", taskRouter);
+app.use("/projects/:id/tasks", taskRouter);
 
 
 app.listen(PORT, () => {

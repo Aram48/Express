@@ -6,5 +6,13 @@
     "status": "Completed",
     "assignee": "Alice Johnson",
     "dueDate": "2024-08-01"
+  },
+  {
+    "id": 122,
+    "title": "App",
+    "description": "Create a new design for the homepage that aligns with the new branding guidelines.",
+    "status": "Completed",
+    "assignee": "Joe Johnson",
+    "dueDate": "2024-09-01"
   }
 ]
