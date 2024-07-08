@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Register</h1>
+    <form id="registerForm">
+      <label for="username">
+        <input type="text" id="username" placeholder="Enter username" required />
+      </label>
+      <label for="email">
+        <input type="text" id="email" placeholder="Enter email" required />
+      </label>
+      <label for="password">
+        <input type="password" id="password" placeholder="Enter password" required />
+      </label>
+      <label for="image">
+        <input type="file" id="image" accept="image/*" required>
+      </label>
+      <button type="submit" id="btn">Submit</button>
+    </form>
+  </div>
+  <script>
+    const form = document.getElementById('registerForm');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      let username = document.getElementById('username').value;
+      let email = document.getElementById('email').value;
+      let password = document.getElementById('password').value;
+      let image = document.getElementById("image").files[0];
+
+      try {
+        const formData = new FormData();
+        formData.append('username', username);
+        formData.append('email', email);
+        formData.append('password', password);
+        formData.append('image', image);
+
+        const response = await fetch('/api/register', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const data = await response.json();
+
+        if (response.status === 201 && data.message === 'User successfuly added') {
+          window.location.href = '/login';
+        } else if (response.status === 409 && data.message === 'User already exist') {
+          console.log(data.message);
+        } else {
+          console.log('Unexpected error:', data.message);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    });
+  </script>
+</body>
+
+
+</html>
